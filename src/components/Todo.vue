@@ -38,10 +38,10 @@ export default {
             this.isEditing = false
         },
         deleteTodo(todo) {
-            this.$emit('delete-todo', todo)
+            this.$store.commit('deleteTodo', todo)
         },
         completeTodo(todo) {
-            this.$emit('complete-todo', todo)
+            this.$store.commit('completeTodo', todo)
         }
     }
 }

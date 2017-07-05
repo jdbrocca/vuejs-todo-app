@@ -36,7 +36,7 @@ export default {
             if (this.titleText.length > 0 && this.projectText.length > 0) {
                 const title = this.titleText
                 const project = this.projectText
-                this.$emit('create-todo', {
+			    this.$store.commit('createTodo', {
                     title,
                     project,
                     done: false

@@ -1,7 +1,7 @@
 <template lang="pug">
 	.container.padding20
 		.section
-			create-todo(@create-todo="addTodo")
+			create-todo
 		.divider
 		.section
 			todo-list(:todos="todos")
@@ -12,35 +12,13 @@ import TodoList from './components/TodoList'
 import CreateTodo from './components/CreateTodo'
 
 export default {
-	name: 'app',
 	components: {
 		TodoList,
 		CreateTodo
 	},
-	data() {
-		return {
-			todos: [{
-				title: 'Todo A',
-				project: 'Project A',
-				done: true
-			}, {
-				title: 'Todo B',
-				project: 'Project B',
-				done: true
-			}, {
-				title: 'Todo C',
-				project: 'Project C',
-				done: false
-			}, {
-				title: 'Todo D',
-				project: 'Project D',
-				done: false
-			}]
-		}
-	},
-	methods: {
-		addTodo(newTodo) {
-			this.todos.push(newTodo)
+	computed: {
+		todos() {
+			return this.$store.state.todos
 		}
 	}
 }
